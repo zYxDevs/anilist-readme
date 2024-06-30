@@ -37,6 +37,7 @@ class ListActivity:
             dt=datetime.fromtimestamp(activity_data["createdAt"], tz.gettz(timezone)),
             date_format=date_format,
         )
+        self.text_format = text_format
         self.progress: str = activity_data["progress"]
         self.status: str = activity_data["status"]
         self.title: str = (
