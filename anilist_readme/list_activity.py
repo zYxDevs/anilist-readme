@@ -30,6 +30,7 @@ class ListActivity:
         timezone: str,
         preferred_lang: Language,
         date_format: str,
+        text_format: str,
     ) -> None:
         self.type: str = activity_data["type"]
         self.created_at = custom_datetime_format(
@@ -48,8 +49,10 @@ class ListActivity:
         self.url: str = activity_data["media"]["siteUrl"]
 
     def __str__(self) -> str:
-        return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}[{self.title}]({self.url}) ({self.created_at})"
-
+        if self.text_format == "md":
+            return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}[{self.title}]({self.url}) ({self.created_at})"
+        else:
+            return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}<a href='{self.url}'>{self.title}</a> ({self.created_at})"
 
 def custom_datetime_format(dt: datetime, date_format: str) -> str:
     new_format = (
