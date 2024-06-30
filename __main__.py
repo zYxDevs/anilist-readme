@@ -17,6 +17,7 @@ def main(
     commit_username: str,
     timezone: str,
     date_format: str,
+    text_format: str,
 ):
     language = validate_language(preferred_language)
 
@@ -26,7 +27,7 @@ def main(
         LIST_QUERY, {"id": int(user_id), "post_count": int(max_post_count)}
     )
     parsed = [
-        ListActivity(activity, timezone, language, date_format)
+        ListActivity(activity, timezone, language, date_format, text_format)
         for activity in response["data"]["Page"]["activities"]
     ]
     readme = open_readme(readme_path)
@@ -56,6 +57,7 @@ if __name__ == "__main__":
     commit_username = actions_input("COMMIT_USERNAME", optional=True) or "GitHub Action"
     preferred_language = actions_input("PREFERRED_LANGUAGE", optional=True) or "english"
     date_format = actions_input("DATE_FORMAT", optional=True) or "{h}:{m} {D} {MW} {Y}"
+    text_format = actions_input("TEXT_FORMAT", optional=True) or "md"
 
     main(
         user_id=user_id,
@@ -68,4 +70,5 @@ if __name__ == "__main__":
         commit_username=commit_username,
         timezone=timezone,
         date_format=date_format,
+        text_format=text_format,
     )
