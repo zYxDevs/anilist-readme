@@ -81,6 +81,9 @@ runs:
         INPUT_GH_TOKEN: ${{ inputs.gh_token }}
         INPUT_COMMIT_EMAIL: ${{ inputs.commit_email }}
         INPUT_COMMIT_USERNAME: ${{ inputs.commit_username }}
+        INPUT_TIMEZONE: ${{ inputs.timezone }}
+        INPUT_DATE_FORMAT: ${{ inputs.date_format }}
+        INPUT_TEXT_FORMAT: ${{ inputs.text_format }}
 
 branding:
   icon: "activity"
