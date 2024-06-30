@@ -29,12 +29,12 @@ class ListActivity:
         activity_data: dict,
         timezone: str,
         preferred_lang: Language,
-        format_date: str,
+        date_format: str,
     ) -> None:
         self.type: str = activity_data["type"]
         self.created_at = custom_datetime_format(
             dt=datetime.fromtimestamp(activity_data["createdAt"], tz.gettz(timezone)),
-            format_date=format_date,
+            date_format=date_format,
         )
         self.progress: str = activity_data["progress"]
         self.status: str = activity_data["status"]
@@ -51,9 +51,9 @@ class ListActivity:
         return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}[{self.title}]({self.url}) ({self.created_at})"
 
 
-def custom_datetime_format(dt: datetime, format_date: str) -> str:
+def custom_datetime_format(dt: datetime, date_format: str) -> str:
     new_format = (
-        format_date.replace("{h}", "%H")
+        date_format.replace("{h}", "%H")
         .replace("{m}", "%M")
         .replace("{D}", "%d")
         .replace("{M}", "%m")
