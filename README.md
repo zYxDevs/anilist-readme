@@ -2,6 +2,8 @@
 
 > Simple workflow that will add your latest activity into your readme!
 
+> Fixed and improved version of ```pxseu/anilist-readme```
+
 [![forthebadge](https://forthebadge.com/images/badges/made-with-python.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/0-percent-optimized.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/it-works-why.svg)](https://forthebadge.com)
@@ -39,7 +41,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: AniList readme workflow
-        uses: pxseu/anilist-readme@senpai # latest version
+        uses: zyxdevs/anilist-readme@senpai # latest version
         with:
           user_id: YOUR_USER_ID # or
           user_name: YOUR_USER_NAME
@@ -55,6 +57,7 @@ jobs:
 | `preferred_language` | The language of the list content (e.g. Romaji, English, Native)  | "english"                              | `False`  |
 | `timezone`           | Timezone of the list content (e.g. Europe/Berlin)                | "UTC"                                  | `False`  |
 | `date_format`        | Date format of the list content (e.g. {D}/{M or MW}/{Y} {h}:{m}) | "{h}:{m} {D} {MW} {Y}"                 | `False`  |
+| `text_format`        | Text formatter of the list content (e.g. "md" for markdown, "html" for html | "md" | `False` |
 | `readme_path`        | Path to the readme file to edit                                  | "./README.md"                          | `False`  |
 | `gh_token`           | Authorized github token                                          | ${{ github.token }}                    | `False`  |
 | `commit_message`     | A message to use when commiting                                  | "Update AniList activity in README.md" | `False`  |
@@ -84,4 +87,4 @@ The query above will return your username and your id which you can use for this
 
 ## Example
 
-You can find it on my [profile](https://github.com/pxseu/pxseu/blob/a2980f3165f0ed86d5469ee35b8ff38e12116794/README.md)!
+You can find it on my [profile](https://github.com/zyxdevs/zyxdevs)!
