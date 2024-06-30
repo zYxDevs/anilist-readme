@@ -53,7 +53,7 @@ class ListActivity:
         if self.text_format == "md":
             return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}[{self.title}]({self.url}) ({self.created_at})"
         else:
-            return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}<a href='{self.url}'>{self.title}</a> ({self.created_at})"
+            return f"-   {EMOJI_DICT[self.type]} {self.status.capitalize()} {f'{self.progress} of ' if self.progress else ''}<a href='{self.url}'>{self.title}</a> ({self.created_at})<br>"
 
 def custom_datetime_format(dt: datetime, date_format: str) -> str:
     new_format = (
