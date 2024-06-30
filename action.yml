@@ -1,5 +1,5 @@
 name: "AniList readme workflow"
-author: "pxseu"
+author: "zyxdevs"
 description: "Puts your newest activity from AniList into your readme"
 
 inputs:
@@ -52,6 +52,11 @@ inputs:
   date_format:
     description: "Date format of the list content (e.g. {D}/{M or MW}/{Y} {h}:{m})"
     default: "{h}:{m} {D} {MW} {Y}"
+    required: false
+
+  text_format:
+    description: "Text formatter of the list content (e.g. md for markdown, html for html)"
+    default: "md"
     required: false
 
 runs:
